@@ -1,27 +1,34 @@
-![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.MjFJVcxuc-McR0jV_Z0goAHaE8%26pid%3DApi&f=1)
+![](https://storage.googleapis.com/twg-content/original_images/why-airbnb-takes-a-customer-centric-approach-to-adwords_case-studies_lg.png)
 
 # 0x00. [AirBnB](https://www.airbnb.com) clone - The console
 
 ## Background Context
 Welcome to the [AirBnB clone project](https://intranet.hbtn.io/concepts/74)! (The Holberton B&B)
-Before starting, please read the AirBnB concept page and watch [this video](https://www.youtube.com/watch?v=jeJwRB33YNg&feature=youtu.be) from [Isaac Wong](https://twitter.com/KYIsaacWong), Cohort #5, showing what the Console should look like when you are complete with this project.
+Before starting, please read the AirBnB concept page and watch [this video](https://www.youtube.com/wa\
+tch?v=jeJwRB33YNg&feature=youtu.be) from [Isaac Wong](https://twitter.com/KYIsaacWong), Cohort #5, sho\
+wing what the Console should look like when you are complete with this project.
 
 ## First step: Write a command interpreter to manage your AirBnB objects.
-This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration
+This is the first step towards building your first full web application: the AirBnB clone. This first \
+step is very important because you will use what you build during this project with all other followin\
+g projects: HTML/CSS templating, database storage, API, front-end integration
 
 Each task is linked and will help you to:
 
-     * put in place a parent class (called ``BaseModel``) to take care of the initialization, serialization and deserialization of your future instances
-     * create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
-     * create all classes used for AirBnB (``User, State, City, Place``...) that inherit from ``BaseModel``
-     * create the first abstracted storage engine of the project: File storage.
-     * create all unittests to validate all our classes and storage engine
+* put in place a parent class (called ``BaseModel``) to take care of the initialization, serializ\
+ation and deserialization of your future instances
+* create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string \
+<-> file
+* create all classes used for AirBnB (``User, State, City, Place``...) that inherit from ``BaseMo\
+del``
+* create the first abstracted storage engine of the project: File storage.
+* create all unittests to validate all our classes and storage engine
 
 ## Whats a command interpreter?
-Do you remember the Shell? Its exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
+Do you remember the Shell? Its exactly the same but limited to a specific use-case. In our case, we wa\
+nt to be able to manage the objects of our project:
 
-   * Create a new object (ex: a new User or a new Place)
-   * Retrieve an object from a file, a database etc
+   * Create a new object (ex: a new User or a new Place)                                                  * Retrieve an object from a file, a database etc
    * Do operations on objects (count, compute stats, etc)
    * Update attributes of an object
    * Destroy an object
@@ -38,13 +45,13 @@ Do you remember the Shell? Its exactly the same but limited to a specific use-ca
 * [Python test cheatsheet](https://www.pythonsheets.com/notes/python-tests.html)
 
 ## Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+At the end of this project, you are expected to be able to explain to anyone, without the help of Goog\
+le:
 
 ### General
 * How to create a Python package
 * How to create a command interpreter in Python using the cmd module
-* What is Unit testing and how to implement it in a large project
-* How to serialize and deserialize a Class
+* What is Unit testing and how to implement it in a large project                                      * How to serialize and deserialize a Class
 * How to write and read a JSON file
 * How to manage datetime
 * What is an UUID
@@ -64,22 +71,23 @@ Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
 
-(hbnb) 
-(hbnb) 
+(hbnb)
+(hbnb)
 (hbnb) quit
 $
 ````
 
 But also in non-interactive mode: (like the Shell project in C)
 
-`````python
+
+````python
 $ echo "help" | ./console.py
 (hbnb)
 
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
+(hbnb)
 $
 $ cat test_help
 help
@@ -90,14 +98,18 @@ $ cat test_help | ./console.py
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
+(hbnb)
 $
 ````
 
-![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200625T135842Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=85bc284adcc13eafeba20fd002c29acb752ddde8e0bc537b49b5a26aaef2dae4)
+![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Al\
+gorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200625%2Fus-east-1%2Fs3%2Faws4_requ\
+est&X-Amz-Date=20200625T135842Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=85bc284ad\
+cc13eafeba20fd002c29acb752ddde8e0bc537b49b5a26aaef2dae4)
 
 # Welcome to Holberton Console
 [HBNHB - The Console](https://youtu.be/p00ES-5K4C8)
 
 #### Follow us
-[Crispthofer Rincon](https://twitter.com/CrispthoAlex) - [Maria Fernanda Crespo](https://twitter.com/mafe_crespo)
+[Crispthofer Rincon](https://twitter.com/CrispthoAlex) - [Maria Fernanda Crespo](https://twitter.com/m\
+afe_crespo)
