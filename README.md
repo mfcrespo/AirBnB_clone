@@ -1,4 +1,6 @@
-# 0x00. [AirBnB](https://www.airbnb.com/) clone - The console
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.MjFJVcxuc-McR0jV_Z0goAHaE8%26pid%3DApi&f=1)
+
+# 0x00. [AirBnB](https://www.airbnb.com) clone - The console
 
 ## Background Context
 Welcome to the [AirBnB clone project](https://intranet.hbtn.io/concepts/74)! (The Holberton B&B)
@@ -9,9 +11,9 @@ This is the first step towards building your first full web application: the Air
 
 Each task is linked and will help you to:
 
-     * put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of your future instances
+     * put in place a parent class (called ``BaseModel``) to take care of the initialization, serialization and deserialization of your future instances
      * create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
-     * create all classes used for AirBnB (User, State, City, Place...) that inherit from BaseModel
+     * create all classes used for AirBnB (``User, State, City, Place``...) that inherit from ``BaseModel``
      * create the first abstracted storage engine of the project: File storage.
      * create all unittests to validate all our classes and storage engine
 
@@ -28,7 +30,6 @@ Do you remember the Shell? Its exactly the same but limited to a specific use-ca
 #### Read or watch:
 
 * [cmd module](https://docs.python.org/3.4/library/cmd.html)
-
 * [packages](https://docs.python.org/3.4/tutorial/modules.html#packages)
 * [uuid module](https://docs.python.org/3.4/library/uuid.html)
 * [datetime](https://docs.python.org/3.4/library/datetime.html)
@@ -63,22 +64,22 @@ Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
 
-(hbnb)
-(hbnb)
+(hbnb) 
+(hbnb) 
 (hbnb) quit
 $
 ````
 
 But also in non-interactive mode: (like the Shell project in C)
 
-````python
+`````python
 $ echo "help" | ./console.py
 (hbnb)
 
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb)
+(hbnb) 
 $
 $ cat test_help
 help
@@ -89,9 +90,10 @@ $ cat test_help | ./console.py
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb)
+(hbnb) 
 $
 ````
+
 ![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200625T135842Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=85bc284adcc13eafeba20fd002c29acb752ddde8e0bc537b49b5a26aaef2dae4)
 
 # Welcome to Holberton Console
