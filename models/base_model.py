@@ -21,9 +21,10 @@ class BaseModel():
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
         else:
-            for key,value in kwargs.items():
+            for key, value in kwargs.items():
                 if key in ["created_at", "updated_at"]:
-                    setattr(self, key, datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
+                    setattr(self, key,
+                            datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
                 elif key not in ['__class__']:
                     setattr(self, key, value)
 
