@@ -7,6 +7,7 @@ import models
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
+
 class HBNBCommand(cmd.Cmd):
     """
     A class HBNH interpreter command
@@ -42,14 +43,14 @@ class HBNBCommand(cmd.Cmd):
         elif arg not in "BaseModel":
             print("** class doesn't exist **")
         else:
-            new_ins = BaseModel()  #Create new instance
+            new_ins = BaseModel()  # Create new instance
             new_ins.save()
             print(new_ins.id)
 
     def do_show(self, arg):
         """ A command that show the class name and id
         """
-        list = arg.split()        
+        list = arg.split()
         if len(list) == 0:
             print("** class name missing **")
         elif list[0] not in "BaseModel":
@@ -57,16 +58,31 @@ class HBNBCommand(cmd.Cmd):
         elif len(list) == 1:
             print("** instance id missing **")
         else:
-            key ="{}.{}".format(list[0], list[1])
+            key = "{}.{}".format(list[0], list[1])
             temp = models.storage.all()  # temp is self.__object
             if key in temp:
-                print (temp[key])
+                print(temp[key])
             else:
-                print ("** no instance found **") 
-        
+                print("** no instance found **")
 
-            #print("** instance id missing **")
-        #elif 
+    def do_destroy(self, arg):
+        """ A command that show the class name and id
+        """
+        list = arg.split()
+        if len(list) == 0:
+            print("** class name missing **")
+        elif list[0] not in "BaseModel":
+            print("** class doesn't exist **")
+        elif len(list) == 1:
+            print("** instance id missing **")
+        else:
+            key = "{}.{}".format(list[0], list[1])
+            temp = models.storage.all()  # temp is self.__object
+            if key in temp:
+                del (temp[key])
+            else:
+                print("** no instance found **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
