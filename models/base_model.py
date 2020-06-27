@@ -5,6 +5,7 @@ subclass User, State, City, Place…
 """
 from datetime import datetime
 import uuid
+import models
 
 
 class BaseModel():
@@ -20,6 +21,7 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
+            # self.__objects
         else:
             for key, value in kwargs.items():
                 if key in ["created_at", "updated_at"]:
@@ -41,6 +43,8 @@ class BaseModel():
         the current datetime
         """
         self.updated_at = datetime.utcnow()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """

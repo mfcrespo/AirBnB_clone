@@ -1,16 +1,17 @@
-#1/usr/bin/python3
+#!/usr/bin/python3
 """
 Module serialize and deserialize JSON file and storage
 """
 
 import json
+from models.base_model import BaseModel
 
 
 class FileStorage():
-	"""
-	A class that serializes instances to a
-	JSON file and deserializes JSON file to instances
-	"""
+    """
+    A class that serializes instances to a
+    JSON file and deserializes JSON file to instances
+    """
 
     __file_path = "file.json"
     __objects = {}
@@ -34,7 +35,18 @@ class FileStorage():
         """
         dict_save = {}
         with open(self.__file_path, "w+", encoding="UTF-8") as f:
-        for key, value in self.__objects.items():
-            dict_save[key] = value
+            for key, value in self.__objects.items():
+                dict_save[key] = value.to_dict()
             json.dump(dict_save, f)
-           
+
+    def reload(self):
+        """
+        A method deserializes the JSON file to __objects
+        """
+        try:
+            with open(self.__file_path, mode="r+", encoding="UTF-8") as f:
+                data = json.load(f)
+            for key, value in data.items():  # **kwargs
+                self.__objects.update({key: BaseModel(**value)})
+        except:
+            pass
