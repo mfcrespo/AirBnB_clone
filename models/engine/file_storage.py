@@ -4,7 +4,9 @@ Module serialize and deserialize JSON file and storage
 """
 
 import json
+import models
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage():
@@ -47,6 +49,8 @@ class FileStorage():
             with open(self.__file_path, mode="r+", encoding="UTF-8") as f:
                 data = json.load(f)
             for key, value in data.items():  # **kwargs
-                self.__objects.update({key: BaseModel(**value)})
+                class_obj = value.get('__class__')
+                if class_obj in models.dict_class:
+                    self.__objects[key] = models.dict_class[class_obj](**value)
         except:
             pass
