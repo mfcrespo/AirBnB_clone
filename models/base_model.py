@@ -19,8 +19,8 @@ class BaseModel():
         """
         if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.utcnow()
-            self.updated_at = datetime.utcnow()
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             # self.__objects
         else:
             for key, value in kwargs.items():
@@ -42,7 +42,7 @@ class BaseModel():
         A method updates the public instance attrib updated_at with
         the current datetime
         """
-        self.updated_at = datetime.utcnow()
+        self.updated_at = datetime.now()
         models.storage.new(self)
         models.storage.save()
 
