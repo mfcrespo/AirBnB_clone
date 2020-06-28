@@ -36,7 +36,8 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        """ A command that creates a new instance of BaseModel,
+        """
+        A command that creates a new instance of BaseModel,
         saves it (to the JSON file) and prints the id
         """
         if not arg:
@@ -49,7 +50,8 @@ class HBNBCommand(cmd.Cmd):
             print(new_ins.id)
 
     def do_show(self, arg):
-        """ A command that show the class name and id
+        """
+        A command that show the class name and id
         """
         l_arg = shlex.split(arg)
         if len(l_arg) == 0:
@@ -67,7 +69,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, arg):
-        """ A command that show the class name and id
+        """
+        A command that show the class name and id
         """
         l_arg = shlex.split(arg)
         if len(l_arg) == 0:
