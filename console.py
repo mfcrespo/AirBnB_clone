@@ -41,10 +41,10 @@ class HBNBCommand(cmd.Cmd):
         """
         if not arg:
             print("** class name missing **")
-        elif arg not in "BaseModel":
+        elif arg not in models.dict_class:
             print("** class doesn't exist **")
         else:
-            new_ins = BaseModel()  # Create new instance
+            new_ins = models.dict_class[arg]()  # Create new instance
             new_ins.save()
             print(new_ins.id)
 
@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
         l_arg = shlex.split(arg)
         if len(l_arg) == 0:
             print("** class name missing **")
-        elif l_arg[0] not in "BaseModel":
+        elif l_arg[0] not in models.dict_class:
             print("** class doesn't exist **")
         elif len(l_arg) == 1:
             print("** instance id missing **")
@@ -72,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
         l_arg = shlex.split(arg)
         if len(l_arg) == 0:
             print("** class name missing **")
-        elif l_arg[0] not in "BaseModel":
+        elif l_arg[0] not in models.dict_class:
             print("** class doesn't exist **")
         elif len(l_arg) == 1:
             print("** instance id missing **")
@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
         list_obj = []
         temp = models.storage.all()  # temp is self.__object
 
-        if (arg and l_arg[0] in "BaseModel") or len(l_arg) == 0:
+        if (arg and l_arg[0] in models.dict_class) or len(l_arg) == 0:
             for key, value in temp.items():
                 list_obj.append(str(value))  # str(temp[key])
             print(list_obj)
@@ -108,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
         l_arg = shlex.split(arg)
         if len(l_arg) == 0:
             print("** class name missing **")
-        elif l_arg[0] not in "BaseModel":
+        elif l_arg[0] not in models.dict_class:
             print("** class doesn't exist **")
         elif len(l_arg) == 1:
             print("** instance id missing **")
