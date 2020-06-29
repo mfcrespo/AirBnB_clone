@@ -4,7 +4,6 @@ Unittest BaseModel class
 """
 import unittest
 import pep8
-import json
 import sys
 from datetime import datetime
 from models import base_model
@@ -47,6 +46,10 @@ class BaseModelclassTests(unittest.TestCase):
         self.ins0 = BaseModel()
         self.ins1 = BaseModel()
 
+    def tearDown(self):
+        """ Clean All test case """
+        pass
+
     def test_instance(self):
         """ Test Case to check instance  """
         self.assertIsInstance(self.ins0, BaseModel)
@@ -62,16 +65,26 @@ class BaseModelclassTests(unittest.TestCase):
         self.assertEqual(type(self.ins0.id), str)
         self.assertEqual(type(self.ins1.id), str)
 
-    def test_datetime(self):
+    def test_datetime_save(self):
         """ Test datetime to compare format """
-        cre1 = self.ins0.created_at
-        up2 = self.ins0.updated_at
-        self.assertEqual(type(cre1), datetime)
-        self.assertEqual(type(up2), datetime)
+        cre = self.ins0.created_at
+        self.ins0.save()
+        up = self.ins0.updated_at
+        self.assertEqual(type(cre), datetime)
+        self.assertEqual(type(up), datetime)
+        self.assertNotEqual(cre, up)  # time create and update are diff
 
-    def test_str_rep(self):
-        """   """
-        pass
+    def test_to_dict(self):
+        """ The dict return is the same """
+        dateform = '%Y-%m-%dT%H:%M:%S.%f'
+        dic = self.ins0.to_dict()
+        self.assertEqual(type(dic['created_at']), str)
+        self.assertEqual(type(dic['updated_at']), str)
+        self.assertEqual(dic['created_at'],
+                         self.ins0.created_at.strftime(dateform))
+        self.assertEqual(dic['updated_at'],
+                         self.ins0.updated_at.strftime(dateform))
+
 
 # Run Test
 # python3 -m unittest discover tests
