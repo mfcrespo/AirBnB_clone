@@ -75,7 +75,7 @@ class BaseModelclassTests(unittest.TestCase):
         self.assertEqual(type(self.ins0.id), str)
         self.assertEqual(type(self.ins1.id), str)
 
-    def test_datetime_save(self):
+    def test_datetime(self):
         """ Test datetime to compare format """
         cre = self.ins0.created_at
         self.ins0.save()
@@ -83,6 +83,14 @@ class BaseModelclassTests(unittest.TestCase):
         self.assertEqual(type(cre), datetime)
         self.assertEqual(type(up), datetime)
         self.assertNotEqual(cre, up)  # time create and update are diff
+
+    def test_save(self):
+        """ Test save method to validate """
+        newinst = BaseModel()  # New instance
+        first_up = newinst.updated_at  # save fisrt update
+        newinst.save()  # Save instance as dictionary
+        second_up = newinst.updated_at  # save second update
+        self.assertNotEqual(first_up, second_up)  # second_up diff first_up
 
     def test_to_dict(self):
         """ The dict return is the same """
