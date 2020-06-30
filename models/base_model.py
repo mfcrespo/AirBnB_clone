@@ -3,6 +3,8 @@
 A class that defines all common attributes/methods for other classes with
 subclass User, State, City, Place…
 """
+
+
 from datetime import datetime
 import uuid
 import models
@@ -51,11 +53,8 @@ class BaseModel():
         A method returns a dict containing all keys/values of
         __dict__ of the instance
         """
-        dict_new = {}
-        for att in self.__dict__:
-            if att in ["created_at", "updated_at"]:
-                dict_new[att] = getattr(self, att).isoformat()
-            else:
-                dict_new[att] = getattr(self, att)
+        dict_new = self.__dict__.copy()
+        dict_new[created_at] = self.created_at.isoformat()
+        dict_new[updated_at] = self.updated_at.isoformat()
         dict_new['__class__'] = self.__class__.__name__
         return (dict_new)
