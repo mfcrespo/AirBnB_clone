@@ -88,7 +88,7 @@ class StateclassTests(unittest.TestCase):
     def test_name_str(self):
         """ Test type of date. Will be str"""
         namestr = self.ins0.name
-        self.assertEqual(type(self.ins0.id), str)
+        self.assertEqual(type(namestr), str)
 
 if __name__ == '__main__':
     unittest.main()
