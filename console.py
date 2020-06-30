@@ -26,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         """
         A command to exit of the program
         """
-        print()
+        # print()
         return True
 
     def emptyline(self):
