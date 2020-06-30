@@ -22,22 +22,22 @@ class FileStorage():
         """
         A method returns the dictionary __objects
         """
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, obj):
         """
         A method sets in __objects the obj with key <obj class name>.id
         """
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        self.__objects[key] = obj
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """
         A method serializes __objects to the JSON file (path: __file_path)
         """
         dict_save = {}
-        with open(self.__file_path, "w+", encoding="UTF-8") as f:
-            for key, value in self.__objects.items():
+        with open(FileStorage.__file_path, "w+", encoding="UTF-8") as f:
+            for key, value in FileStorage.__objects.items():
                 dict_save[key] = value.to_dict()
             json.dump(dict_save, f)
 
@@ -46,11 +46,12 @@ class FileStorage():
         A method deserializes the JSON file to __objects
         """
         try:
-            with open(self.__file_path, mode="r+", encoding="UTF-8") as f:
+            with open(FileStorage.__file_path, mode="r+",
+                      encoding="UTF-8") as f:
                 data = json.load(f)
             for key, value in data.items():  # **kwargs
-                class_obj = value.get('__class__')
-                if class_obj in models.dict_class:
-                    self.__objects[key] = models.dict_class[class_obj](**value)
+                clobj = value.get('__class__')
+                if clobj in models.dict_cl:
+                    FileStorage.__objects[key] = models.dict_cl[clobj](**value)
         except:
             pass
