@@ -29,6 +29,7 @@ class BaseModel():
                             datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
                 elif key not in ['__class__']:
                     setattr(self, key, value)
+            models.storage.new(self)
 
     def __str__(self):
         """
