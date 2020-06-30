@@ -4,6 +4,7 @@ Unittest FileStorage class
 """
 import unittest
 import pep8
+import os
 from models import base_model
 from models.base_model import BaseModel
 from models.engine import file_storage
@@ -49,6 +50,15 @@ class BaseModelclassTests(unittest.TestCase):
     def tearDown(self):
         """ Clean All test case """
         pass
+
+    def test_permissions(self):
+        """test read-write-execute permissions"""
+        read = os.access('models/engine/file_storage.py', os.R_OK)
+        self.assertTrue(read)
+        write = os.access('models/engine/file_storage.py', os.W_OK)
+        self.assertTrue(write)
+        exe = os.access('models/engine/file_storage.py', os.X_OK)
+        self.assertTrue(exe)
 
     def test_isinstance(self):
         """ Test if a variable is instance of FileStorage """
