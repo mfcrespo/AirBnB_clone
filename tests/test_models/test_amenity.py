@@ -5,6 +5,7 @@ Unittest Amenity class
 import unittest
 import pep8
 import sys
+import os
 from datetime import datetime
 from models import amenity
 from models.amenity import Amenity
@@ -54,6 +55,15 @@ class BaseModelclassTests(unittest.TestCase):
         """ Test Case to check instance  """
         self.assertIsInstance(self.ins0, Amenity)
         self.assertIsInstance(self.ins1, Amenity)
+
+    def test_permissions(self):
+        """test read-write-execute permissions"""
+        read = os.access('models/amenity.py', os.R_OK)
+        self.assertTrue(read)
+        write = os.access('models/amenity.py', os.W_OK)
+        self.assertTrue(write)
+        exe = os.access('models/amenity.py', os.X_OK)
+        self.assertTrue(exe)
 
     def test_id(self):
         """

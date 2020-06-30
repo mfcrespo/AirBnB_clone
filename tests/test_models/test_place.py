@@ -5,6 +5,7 @@ Unittest Place class
 import unittest
 import pep8
 import sys
+import os
 from datetime import datetime
 from models import place
 from models.place import Place
@@ -54,6 +55,15 @@ class PlaceclassTests(unittest.TestCase):
         """ Test Case to check instance  """
         self.assertIsInstance(self.ins0, Place)
         self.assertIsInstance(self.ins1, Place)
+
+    def test_permissions(self):
+        """test read-write-execute permissions"""
+        read = os.access('models/place.py', os.R_OK)
+        self.assertTrue(read)
+        write = os.access('models/place.py', os.W_OK)
+        self.assertTrue(write)
+        exe = os.access('models/place.py', os.X_OK)
+        self.assertTrue(exe)        
 
     def test_id(self):
         """

@@ -5,6 +5,7 @@ Unittest City class
 import unittest
 import pep8
 import sys
+import os
 from datetime import datetime
 from models import city
 from models.city import City
@@ -54,6 +55,15 @@ class BaseModelclassTests(unittest.TestCase):
         """ Test Case to check instance  """
         self.assertIsInstance(self.ins0, City)
         self.assertIsInstance(self.ins1, City)
+
+    def test_permissions(self):
+        """test read-write-execute permissions"""
+        read = os.access('models/city.py', os.R_OK)
+        self.assertTrue(read)
+        write = os.access('models/city.py', os.W_OK)
+        self.assertTrue(write)
+        exe = os.access('models/city.py', os.X_OK)
+        self.assertTrue(exe)
 
     def test_id(self):
         """
