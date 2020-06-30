@@ -85,7 +85,9 @@ class BaseModelclassTests(unittest.TestCase):
         self.assertEqual(dic['updated_at'],
                          self.ins0.updated_at.strftime(dateform))
 
+if __name__ == '__main__':
+    unittest.main()
 
 # Run Test
 # python3 -m unittest discover tests
-# python3 -m unittest tests/test_models/test_"name_module".py
+# python3 -m unittest tests/test_models/test_base_model.py
