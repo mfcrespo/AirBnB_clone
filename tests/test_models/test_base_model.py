@@ -76,12 +76,11 @@ class BaseModelclassTests(unittest.TestCase):
 
     def test_save(self):
         """ Test save method to validate """
-        cre = self.ins0.created_at
-        up1 = self.ins0.updated_at
-        self.ins0.save()
-        up2 = self.ins0.updated_at
-        self.assertNotEqual(up1, up2)  # up2 will be diff to up1
-        self.assertNotEqual(cre, up2)  # cre will be diff to up2
+        newinst = BaseModel()  # New instance
+        first_up = newinst.updated_at  # save fisrt update
+        newinst.save()  # Save instance as dictionary
+        second_up = newinst.updated_at  # save second update
+        self.assertNotEqual(first_up, second_up)  # second_up diff first_up
 
     def test_to_dict(self):
         """ The dict return is the same """
