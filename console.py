@@ -97,12 +97,17 @@ class HBNBCommand(cmd.Cmd):
         list_obj = []
         temp = models.storage.all()  # temp is self.__object
 
-        if (arg and l_arg[0] in models.dict_class) or len(l_arg) == 0:
+        if len(l_arg) == 0:  # (arg and l_arg[0] in models.dict_class) or
             for key, value in temp.items():
                 list_obj.append(str(value))  # str(temp[key])
             print(list_obj)
-        else:
+        elif l_arg[0] not in models.dict_class:
             print("** class doesn't exist **")
+        else:
+            for key, value in temp.items():
+                if key.split(".")[0] == l_arg[0]:
+                    list_obj.append(str(value))  # str(temp[key])
+            print(list_obj)
 
     def do_update(self, arg):
         """
@@ -129,6 +134,16 @@ class HBNBCommand(cmd.Cmd):
                 new_obj = temp.get(key)
                 setattr(new_obj, l_arg[2], l_arg[3])
                 models.storage.save()
+
+    def default(self, arg):
+        """
+        Method called on an input line when the command prefix is
+        not recognized <class name>.all()
+        """
+        l_arg = arg.split(".")
+        if len(l_arg) == 2:
+            if l_arg[1] == "all()":
+                self.do_all(l_arg[0])
 
 
 if __name__ == '__main__':
