@@ -4,110 +4,114 @@
 
 ## Background Context
 Welcome to the [AirBnB clone project](https://intranet.hbtn.io/concepts/74)! (The Holberton B&B)
-Before starting, please read the AirBnB concept page and watch [this video](https://www.youtube.com/wa\
-tch?v=jeJwRB33YNg&feature=youtu.be) from [Isaac Wong](https://twitter.com/KYIsaacWong), Cohort #5, sho\
-wing what the Console should look like when you are complete with this project.
+Before starting, please read the AirBnB concept page and watch [this video](https://www.youtube.com/watch?v=jeJwRB33YNg&feature=youtu.be) from [Isaac Wong](https://twitter.com/KYIsaacWong), Cohort #5, showing what the Console should look like when you are complete with this project.
 
-## First step: Write a command interpreter to manage your AirBnB objects.
-This is the first step towards building your first full web application: the AirBnB clone. This first \
-step is very important because you will use what you build during this project with all other followin\
-g projects: HTML/CSS templating, database storage, API, front-end integration
+It is time to develop our AirBnb clone. The goal of the project is to deploy on your server a simple copy of the website. This project must be composed at the end of its development by:
 
-Each task is linked and will help you to:
+* A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging)
 
-* put in place a parent class (called ``BaseModel``) to take care of the initialization, serializ\
-ation and deserialization of your future instances
-* create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string \
-<-> file
-* create all classes used for AirBnB (``User, State, City, Place``...) that inherit from ``BaseMo\
-del``
+* A website (the front-end) that shows the final product to everybody: static and dynamic
+
+* A database or files that store data (data = objects)
+
+* An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them)
+
+See to the following picture:
+
+### PICTURE
+
+AirBnb Clone is a project that consists of several stages linked together, which will be developed step by step:
+* The Console
+* Web Static
+* MySQL storage
+* Web framework - templating
+* RESTful API
+* Web dynamic
+
+And today will start with The Console (a command interpreter to manage your AirBnB objects).
+
+This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration and others.
+
+### Diagram AirBnB  clone (The Console)
+
+
+## Create The console (manage your AirBnB objects)
+
+
+* put in place a parent class (called ``BaseModel``) to take care of the initialization, serialization and deserialization of your future instances
+* create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
+* create all classes used for AirBnB (``User, State, City, Place``...) that inherit from ``BaseModel``
 * create the first abstracted storage engine of the project: File storage.
 * create all unittests to validate all our classes and storage engine
 
-## Whats a command interpreter?
-Do you remember the Shell? Its exactly the same but limited to a specific use-case. In our case, we wa\
-nt to be able to manage the objects of our project:
 
-   * Create a new object (ex: a new User or a new Place)
-   * Retrieve an object from a file, a database etc
-   * Do operations on objects (count, compute stats, etc)
-   * Update attributes of an object
-   * Destroy an object
+### Files in This Repository:
 
-## Resources
-#### Read or watch:
 
-* [cmd module](https://docs.python.org/3.4/library/cmd.html)
-* [packages](https://docs.python.org/3.4/tutorial/modules.html#packages)
-* [uuid module](https://docs.python.org/3.4/library/uuid.html)
-* [datetime](https://docs.python.org/3.4/library/datetime.html)
-* [unittest module](https://docs.python.org/3.4/library/unittest.html#module-unittest)
-* [args/kwargs](https://yasoob.me/2013/08/04/args-and-kwargs-in-python-explained/)
-* [Python test cheatsheet](https://www.pythonsheets.com/notes/python-tests.html)
+| File | File Hierarchy | Description |
+| :---: | :---: | :---: |
+| `console.py` | [console.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/console.py) | The main console file |
+| `amenity.py` | [models/amenity.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/models/amenity.py) | The amenity subclass |
+| `base_model.py` | [models/base_model.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/models/base_model.py) | The base model superclass |
+| `city.py` | [models/city.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/models/city.py) | The city subclass | 
+| `place.py` | [models/place.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/models/place.py) | Te place subclass |
+| `review.py` | [models/review.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/models/review.py) | Te review subclass |
+| `state.py` | [models/state.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/models/state.py) | Te state subclass |
+| `user.py` | [models/user.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/models/user.py) | Te user subclass |
+| `file_storage.py` | [models/engine/file_storage.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/models/engine/file_storage.py) | The file storage class |
+| `test_amenity.py` | [tests/test_amenity.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/tests/test_models/test_amenity.py) | The unittest module for amenity |
+| `test_base_model.py` | [tests/base_model.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/tests/test_models/test_base_model.py) | The unittest module for base model |
+| `test_city.py` | [tests/city.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/tests/test_models/test_city.py) | The unittest module for city |
+| `test_place.py` | [tests/place.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/tests/test_models/test_place.py) | The unittest module for place |
+| `test_review.py` | [tests/review.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/tests/test_models/test_review.py) | The unittest module for review |
+| `test_state.py` | [tests/state.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/tests/test_models/test_state.py) | The unittest module for state |
+| `test_user.py` | [tests/user.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/tests/test_models/test_user.py) | The unittest module for user |
+| `test_file_storage.py` | [tests/test_models/test_engine/test_file_storage.py](https://github.com/mfcrespo/AirBnB_clone/blob/master/tests/test_models/test_engine/test_file_storage.py) | The unittest module for file storage |
 
-## Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Goog\
-le:
 
-### General
-* How to create a Python package
-* How to create a command interpreter in Python using the cmd module
-* What is Unit testing and how to implement it in a large project
-* How to serialize and deserialize a Class
-* How to write and read a JSON file
-* How to manage datetime
-* What is an UUID
-* What is *args and how to use it
-* What is **kwargs and how to use it
-* How to handle named arguments in a function
+### Usage
+### Basic usage of The Console
 
-# More Info
-## Execution
-Your shell should work like this in interactive mode:
+| Command | Usage | Example | Functionality |
+| :---: | :---: | :---: | :---: |
+| `help` | `help` | help | displays a list of the commands |
+| `create` | `create <class>` | create BaseModel | Create a new instance |
+| `show` | `show <class> <id>` | show BaseModel 787fds-fdf665-fdf843a1 | Shows a specific instance |
+| `destroy` | `destroy <class> <id>` | destroy BaseModel 787fds-fdf665-fdf843a1 | Deletes a specific instance |
+| `all` | `all` or `all <class>` | all BaseModel | Shows all instance or class |
+| `update` | `update <class> <id> <attribute> <value>` | update BaseModel 787fds-fdf665-fdf843a1 name Maria | Update an attribute in an instance |
+| `quit` | `quit` | quit | Quits the console |
+
+### Installation:
+```python
+$ git clone git@github.com:mfcrespo/AirBnB_clone.git
+$ ./console.py
+```
+
+## Examples:
 
 ````python
 $ ./console.py
-(hbnb) help
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-
-(hbnb)
-(hbnb)
-(hbnb) quit
-$
 ````
+### Interactive Mode
 
-But also in non-interactive mode: (like the Shell project in C)
+#### PASTE IMAGE
 
 
-````python
-$ echo "help" | ./console.py
-(hbnb)
+### Non-interactive Mode
 
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb)
-$
-$ cat test_help
-help
-$
-$ cat test_help | ./console.py
-(hbnb)
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb)
-$
-````
-
-![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200625T135842Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=85bc284adcc13eafeba20fd002c29acb752ddde8e0bc537b49b5a26aaef2dae4)
+#### PASTE IMAGE
 
 # Welcome to Holberton Console
 [HBNHB - The Console](https://youtu.be/p00ES-5K4C8)
 
 #### Follow us
-[Crispthofer Rincon](https://twitter.com/CrispthoAlex) - [Maria Fernanda Crespo](https://twitter.com/mafe_crespo)
+<p>
+<img src="https://pbs.twimg.com/profile_images/962795960173846528/sl2HspUe_400x400.jpg" width="70%" height="70%">
+</p>
+
+[Crispthofer Rincon](https://twitter.com/CrispthoAlex)
+
+![](https://pbs.twimg.com/profile_images/1116938743968149504/0TQ4K4r3_400x400.jpg)
+
+[Maria Fernanda Crespo](https://twitter.com/mafe_crespo)
