@@ -63,7 +63,7 @@ class BaseModelclassTests(unittest.TestCase):
         write = os.access('models/base_model.py', os.W_OK)
         self.assertTrue(write)
         exe = os.access('models/base_model.py', os.X_OK)
-        self.assertTrue(exe)   
+        self.assertTrue(exe)
 
     def test_id(self):
         """

@@ -63,7 +63,7 @@ class PlaceclassTests(unittest.TestCase):
         write = os.access('models/place.py', os.W_OK)
         self.assertTrue(write)
         exe = os.access('models/place.py', os.X_OK)
-        self.assertTrue(exe)        
+        self.assertTrue(exe)
 
     def test_id(self):
         """

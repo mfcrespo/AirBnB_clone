@@ -8,6 +8,7 @@ import sys
 from datetime import datetime
 from models import user
 from models.user import User
+import os
 
 
 class TestPep8B(unittest.TestCase):
@@ -54,6 +55,15 @@ class UserclassTests(unittest.TestCase):
         """ Test Case to check instance  """
         self.assertIsInstance(self.ins0, User)
         self.assertIsInstance(self.ins1, User)
+
+    def test_permissions(self):
+        """test read-write-execute permissions"""
+        read = os.access('models/user.py', os.R_OK)
+        self.assertTrue(read)
+        write = os.access('models/user.py', os.W_OK)
+        self.assertTrue(write)
+        exe = os.access('models/user.py', os.X_OK)
+        self.assertTrue(exe)
 
     def test_id(self):
         """

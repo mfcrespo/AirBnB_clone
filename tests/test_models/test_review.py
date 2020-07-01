@@ -8,6 +8,7 @@ import sys
 from datetime import datetime
 from models import review
 from models.review import Review
+import os
 
 
 class TestPep8B(unittest.TestCase):
@@ -64,6 +65,15 @@ class ReviewclassTests(unittest.TestCase):
         self.assertNotEqual(self.ins0.id, self.ins1.id)
         self.assertEqual(type(self.ins0.id), str)
         self.assertEqual(type(self.ins1.id), str)
+
+    def test_permissions(self):
+        """test read-write-execute permissions"""
+        read = os.access('models/review.py', os.R_OK)
+        self.assertTrue(read)
+        write = os.access('models/review.py', os.W_OK)
+        self.assertTrue(write)
+        exe = os.access('models/review.py', os.X_OK)
+        self.assertTrue(exe)
 
     def test_datetime_save(self):
         """ Test datetime to compare format """
