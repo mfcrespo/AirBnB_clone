@@ -16,7 +16,7 @@ It is time to develop our AirBnb clone. The goal of the project is to deploy on 
 See to the following picture:
 
 <p>
-<img src="https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20clone%20website.png" width="20%" height="20%">
+<img src="https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20clone%20website.png" width="60%" height="60%">
 </p>
 
 AirBnb Clone is a project that consists of several stages linked together, which will be developed step by step:
@@ -115,7 +115,7 @@ $ echo "all User" | ./console.py
 
 #### Follow us
 
-| Collaborator | GitHub | Twitter | Linkedin |
+| Authors | GitHub | Twitter | Linkedin |
 | :---: | :---: | :---: | :---: |
 | Maria Fernanda Crespo | [mfcrespo](https://github.com/mfcrespo) | [@mafe_crespo](https://twitter.com/mafe_crespo) | [mariafernandacrespo](https://www.linkedin.com/in/mariafernandacrespo) |
 | Crispthofer Rincon | [CrispthoAlex](https://github.com/CrispthoAlex) | [CrispthoAlex](https://twitter.com/CrispthoAlex) | [carmurrain](https://www.linkedin.com/in/carmurrain) |
@@ -123,9 +123,14 @@ $ echo "all User" | ./console.py
 <p>
 <img src="https://pbs.twimg.com/profile_images/962795960173846528/sl2HspUe_400x400.jpg" width="40%" height="40%">
 </p>
+
 [Crispthofer Rincon](https://twitter.com/CrispthoAlex)
 
 <p>
 <img src="https://pbs.twimg.com/profile_images/1116938743968149504/0TQ4K4r3_400x400.jpg" width="40%" height="40%">                                                       
 </p>
+
 [Maria Fernanda Crespo](https://twitter.com/mafe_crespo)
+
+##### Holberton School - Foundations - Higher-level programming  AirBnB clone
+##### June 25, 2020. Cali, Colombia
