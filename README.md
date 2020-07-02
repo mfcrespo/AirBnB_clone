@@ -16,7 +16,7 @@ It is time to develop our AirBnb clone. The goal of the project is to deploy on 
 See to the following picture:
 
 <p>
-<img src="https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20clone%20website.png" width="60%" height="60%">
+<img src="https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20clone%20website.png" width="80%" height="80%">
 </p>
 
 AirBnb Clone is a project that consists of several stages linked together, which will be developed step by step:
@@ -100,7 +100,7 @@ $ ./console.py
 ![](https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20console%20interactive.gif)
 
 #### Input 2
-![](https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20console%20non-interactive.gif)
+![](https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20console%20avanced.gif)
 
 ### Non-interactive Mode
 
@@ -121,13 +121,13 @@ $ echo "all User" | ./console.py
 | Crispthofer Rincon | [CrispthoAlex](https://github.com/CrispthoAlex) | [CrispthoAlex](https://twitter.com/CrispthoAlex) | [carmurrain](https://www.linkedin.com/in/carmurrain) |
 
 <p>
-<img src="https://pbs.twimg.com/profile_images/962795960173846528/sl2HspUe_400x400.jpg" width="40%" height="40%">
+<img src="https://pbs.twimg.com/profile_images/962795960173846528/sl2HspUe_400x400.jpg" width="20%" height="20%">
 </p>
 
 [Crispthofer Rincon](https://twitter.com/CrispthoAlex)
 
 <p>
-<img src="https://pbs.twimg.com/profile_images/1116938743968149504/0TQ4K4r3_400x400.jpg" width="40%" height="40%">                                                       
+<img src="https://pbs.twimg.com/profile_images/1116938743968149504/0TQ4K4r3_400x400.jpg" width="20%" height="20%">                                                       
 </p>
 
 [Maria Fernanda Crespo](https://twitter.com/mafe_crespo)
