@@ -163,14 +163,19 @@ class HBNBCommand(cmd.Cmd):
                 self.do_all(l_arg[0])
             elif l_arg[1] == "count()":
                 self.do_count(l_arg[0])
-            elif l_arg[1][0:4] == "show":  # contain show ?
+            elif l_arg[1][0:4] == "show":  # contain command
                 id_line = re.split(r'show\("|"\)', l_arg[1])
                 argjoin = " ".join([l_arg[0], id_line[1]])
                 self.do_show(argjoin)
-            elif l_arg[1][0:7] == "destroy":  # contain show ?
+            elif l_arg[1][0:7] == "destroy":
                 id_line = re.split(r'destroy\("|"\)', l_arg[1])
                 argjoin = " ".join([l_arg[0], id_line[1]])
                 self.do_destroy(argjoin)
+            elif l_arg[1][0:6] == "update":  # contain command
+                id_line = re.split(r'update\("|"|, "|"|, |\)', l_arg[1])
+                arg_line = list(filter(None, id_line))
+                arg_str = l_arg[0] + " " + " ".join(arg_line)
+                self.do_update(arg_str)
 
 
 if __name__ == '__main__':
