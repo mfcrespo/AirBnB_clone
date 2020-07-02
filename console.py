@@ -7,6 +7,7 @@ import models
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 import shlex
+import re
 
 
 class HBNBCommand(cmd.Cmd):
@@ -135,6 +136,22 @@ class HBNBCommand(cmd.Cmd):
                 setattr(new_obj, l_arg[2], l_arg[3])
                 models.storage.save()
 
+    def do_count(self, arg):
+        """  retrieve the number of instances of a class:
+        <class name>.count()
+        """
+        l_arg = shlex.split(arg)
+        list_obj = []
+        temp = models.storage.all()  # temp is self.__object
+        count = 0
+        if l_arg[0] not in models.dict_class:
+            print("** class doesn't exist **")
+        else:
+            for key, value in temp.items():
+                if key.split(".")[0] == l_arg[0]:
+                    count += 1
+            print(count)
+
     def default(self, arg):
         """
         Method called on an input line when the command prefix is
@@ -144,6 +161,12 @@ class HBNBCommand(cmd.Cmd):
         if len(l_arg) == 2:
             if l_arg[1] == "all()":
                 self.do_all(l_arg[0])
+            elif l_arg[1] == "count()":
+                self.do_count(l_arg[0])
+            elif l_arg[1][0:4] == "show":  # contain show ?
+                id_line = re.split(r'show\("|"\)', l_arg[1])
+                argjoin = " ".join([l_arg[0], id_line[1]])
+                self.do_show(argjoin)
 
 
 if __name__ == '__main__':
