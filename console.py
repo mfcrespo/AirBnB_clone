@@ -157,25 +157,34 @@ class HBNBCommand(cmd.Cmd):
         Method called on an input line when the command prefix is
         not recognized <class name>.all()
         """
-        l_arg = arg.split(".")
-        if len(l_arg) == 2:
-            if l_arg[1] == "all()":
-                self.do_all(l_arg[0])
-            elif l_arg[1] == "count()":
-                self.do_count(l_arg[0])
-            elif l_arg[1][0:4] == "show":  # contain command
-                id_line = re.split(r'show\("|"\)', l_arg[1])
-                argjoin = " ".join([l_arg[0], id_line[1]])
+        l_a = arg.split(".")
+        if len(l_a) == 2:
+            if l_a[1] == "all()":
+                self.do_all(l_a[0])
+            elif l_a[1] == "count()":
+                self.do_count(l_a[0])
+            elif l_a[1][0:4] == "show":  # contain command
+                id_line = re.split(r'show\("|"\)', l_a[1])
+                argjoin = " ".join([l_a[0], id_line[1]])
                 self.do_show(argjoin)
-            elif l_arg[1][0:7] == "destroy":
-                id_line = re.split(r'destroy\("|"\)', l_arg[1])
-                argjoin = " ".join([l_arg[0], id_line[1]])
+            elif l_a[1][0:7] == "destroy":
+                id_line = re.split(r'destroy\("|"\)', l_a[1])
+                argjoin = " ".join([l_a[0], id_line[1]])
                 self.do_destroy(argjoin)
-            elif l_arg[1][0:6] == "update":  # contain command
-                id_line = re.split(r'update\("|"|, "|"|, |\)', l_arg[1])
-                arg_line = list(filter(None, id_line))
-                arg_str = l_arg[0] + " " + " ".join(arg_line)
-                self.do_update(arg_str)
+            elif l_a[1][0:6] == "update":  # contain command
+                if l_a[1].find("{") < 0:
+                    id_line = re.split(r'update\("|"|, "|"|, |\)', l_a[1])
+                    arg_line = list(filter(None, id_line))
+                    arg_str = l_a[0] + " " + " ".join(arg_line)
+                    self.do_update(arg_str)
+                else:
+                    id_line = \
+                        re.split(r'update\("|"|, {|:|"|"|, "|":| |}\)', l_a[1])
+                    a_li = list(filter(None, id_line))
+                    ars = l_a[0] + " " + " ".join(a_li[0:3])
+                    self.do_update(ars)
+                    ars1 = l_a[0] + " " + a_li[0] + " " + " ".join(a_li[3:5])
+                    self.do_update(ars1)
 
 
 if __name__ == '__main__':
