@@ -9,18 +9,18 @@ Before starting, please read the AirBnB concept page and watch [this video](http
 It is time to develop our AirBnb clone. The goal of the project is to deploy on your server a simple copy of the website. This project must be composed at the end of its development by:
 
 * A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging)
-
 * A website (the front-end) that shows the final product to everybody: static and dynamic
-
 * A database or files that store data (data = objects)
-
 * An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them)
 
 See to the following picture:
 
-### PICTURE
+<p>
+<img src="https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20clone%20website.png" width="20%" height="20%">
+</p>
 
 AirBnb Clone is a project that consists of several stages linked together, which will be developed step by step:
+
 * The Console
 * Web Static
 * MySQL storage
@@ -33,10 +33,9 @@ And today will start with The Console (a command interpreter to manage your AirB
 This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration and others.
 
 ### Diagram AirBnB  clone (The Console)
-
+![](https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Flow%20Airbnb%20clone.png)
 
 ## Create The console (manage your AirBnB objects)
-
 
 * put in place a parent class (called ``BaseModel``) to take care of the initialization, serialization and deserialization of your future instances
 * create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
@@ -46,7 +45,6 @@ This is the first step towards building your first full web application: the Air
 
 
 ### Files in This Repository:
-
 
 | File | File Hierarchy | Description |
 | :---: | :---: | :---: |
@@ -90,28 +88,44 @@ $ ./console.py
 
 ## Examples:
 
-````python
-$ ./console.py
-````
 ### Interactive Mode
 
-#### PASTE IMAGE
+````python
+$ ./console.py
+(hbnb) all  <-- input 1
+(hbnb) 
+(hbnb) User.all() <-- input 2
+````
+#### Input 1
+![](https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20console%20interactive.gif)
 
+#### Input 2
+![](https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20console%20non-interactive.gif)
 
 ### Non-interactive Mode
 
-#### PASTE IMAGE
+````python
+$ echo "all User" | ./console.py
+````
+
+![](https://github.com/mfcrespo/AirBnB_clone/blob/master/images/Airbnb%20console%20non-interactive.gif)
 
 # Welcome to Holberton Console
 [HBNHB - The Console](https://youtu.be/p00ES-5K4C8)
 
 #### Follow us
-<p>
-<img src="https://pbs.twimg.com/profile_images/962795960173846528/sl2HspUe_400x400.jpg" width="70%" height="70%">
-</p>
 
+| Collaborator | GitHub | Twitter | Linkedin |
+| :---: | :---: | :---: | :---: |
+| Maria Fernanda Crespo | [mfcrespo](https://github.com/mfcrespo) | [@mafe_crespo](https://twitter.com/mafe_crespo) | [mariafernandacrespo](https://www.linkedin.com/in/mariafernandacrespo) |
+| Crispthofer Rincon | [CrispthoAlex](https://github.com/CrispthoAlex) | [CrispthoAlex](https://twitter.com/CrispthoAlex) | [carmurrain](https://www.linkedin.com/in/carmurrain) |
+
+<p>
+<img src="https://pbs.twimg.com/profile_images/962795960173846528/sl2HspUe_400x400.jpg" width="40%" height="40%">
+</p>
 [Crispthofer Rincon](https://twitter.com/CrispthoAlex)
 
-![](https://pbs.twimg.com/profile_images/1116938743968149504/0TQ4K4r3_400x400.jpg)
-
+<p>
+<img src="https://pbs.twimg.com/profile_images/1116938743968149504/0TQ4K4r3_400x400.jpg" width="40%" height="40%">                                                       
+</p>
 [Maria Fernanda Crespo](https://twitter.com/mafe_crespo)
