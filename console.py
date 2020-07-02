@@ -167,6 +167,10 @@ class HBNBCommand(cmd.Cmd):
                 id_line = re.split(r'show\("|"\)', l_arg[1])
                 argjoin = " ".join([l_arg[0], id_line[1]])
                 self.do_show(argjoin)
+            elif l_arg[1][0:7] == "destroy":  # contain show ?
+                id_line = re.split(r'destroy\("|"\)', l_arg[1])
+                argjoin = " ".join([l_arg[0], id_line[1]])
+                self.do_destroy(argjoin)
 
 
 if __name__ == '__main__':
