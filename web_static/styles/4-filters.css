@@ -1,5 +1,5 @@
 .filters{
-    color: #FFFFFF;
+    background-color: #FFFFFF;
     height: 70px;
     width: 1000px;
     border: 1px;
@@ -21,5 +21,8 @@ button{
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
 
+button:hover{
+    opacity: 90%;
 }
