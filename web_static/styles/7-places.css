@@ -11,7 +11,7 @@
     margin-left: 15px;
 }
 
-article{
+.places article{
     width: 390px;
     padding: 20px;
     margin: 20px;
@@ -22,6 +22,6 @@ article{
     text-align: center;
 }
 
-h2{
+.places article h2{
     font-size: 30px;
 }
